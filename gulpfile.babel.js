@@ -9,14 +9,16 @@ function cssBuildTask(){
 	return gulp.src( 'assets/sass/**/*.*' )
 		.pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
 		.pipe( postcss( [ autoprefixer() ] ) )
-		.pipe( gulp.dest( 'assets/css' ) );
+        .pipe( gulp.dest( 'assets/css' ) )
+        .pipe( buildAssets() );
 }
 
 /* Layout builder task */
 function buildLayout(){
 	return gulp.src( [ 'layout/pages/**/*.html' ] )
 		.pipe( inject( { pattern: '<!--inject:<filename>-->' } ) )
-		.pipe( gulp.dest( './public/' ) );
+        .pipe( gulp.dest( './public/' ) )
+        .pipe( buildAssets() );
 }
 
 /* Assets builder task */
@@ -29,8 +31,8 @@ function buildAssets(){
 export function watch(){
 	gulp.watch( 'layout/**/*.html', buildLayout );
 	gulp.watch( 'assets/sass/**/*.sass', cssBuildTask );
-	gulp.watch( 'assets/sass/**/*.scss', cssBuildTask );
+    gulp.watch( 'assets/sass/**/*.scss', cssBuildTask );    
 }
 
 /* Default task */
-export default gulp.series( buildLayout, cssBuildTask, buildAssets )
+export default gulp.series( buildLayout, cssBuildTask )

@@ -66,12 +66,15 @@ p, div, span
         &.smaller
             font-size: 17px
 
+#navbar
+    @include media-breakpoint-up(md)
+        display: none
+
 .wrapper
     display: flex
     flex-direction: row
     align-items: start
-    justify-content: center
-    margin: 0 auto
+    justify-content: flex-start
     max-width: 1490px
     width: 100%
 
@@ -88,9 +91,13 @@ p, div, span
         max-width: 1140px
         border-bottom-left-radius: 5px
         border-bottom-right-radius: 5px
-        margin: 0 0 81px 0
+        margin: 0 0 81px 250px
         position: relative
         overflow-x: hidden
+
+        @include media-breakpoint-down(md)
+            margin-top: 50px
+            margin-left: 0
 
 .overlay
     position: fixed
