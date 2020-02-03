@@ -9,16 +9,14 @@ function cssBuildTask(){
 	return gulp.src( 'assets/sass/**/*.*' )
 		.pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
 		.pipe( postcss( [ autoprefixer() ] ) )
-        .pipe( gulp.dest( 'assets/css' ) )
-        .pipe( buildAssets() );
+        .pipe( gulp.dest( 'assets/css' ) );
 }
 
 /* Layout builder task */
 function buildLayout(){
 	return gulp.src( [ 'layout/pages/**/*.html' ] )
 		.pipe( inject( { pattern: '<!--inject:<filename>-->' } ) )
-        .pipe( gulp.dest( './public/' ) )
-        .pipe( buildAssets() );
+        .pipe( gulp.dest( './public/' ) );
 }
 
 /* Assets builder task */
