@@ -33,4 +33,4 @@ export function watch(){
 }
 
 /* Default task */
-export default gulp.series( buildLayout, cssBuildTask )
+export default gulp.series( buildLayout, cssBuildTask, buildAssets )
