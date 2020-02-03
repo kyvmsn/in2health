@@ -16,7 +16,13 @@ function cssBuildTask(){
 function buildLayout(){
 	return gulp.src( [ 'layout/pages/**/*.html' ] )
 		.pipe( inject( { pattern: '<!--inject:<filename>-->' } ) )
-		.pipe( gulp.dest( './' ) );
+		.pipe( gulp.dest( './public/' ) );
+}
+
+/* Assets builder task */
+function buildAssets(){
+	return gulp.src( [ 'assets/**/*.*' ] )		
+		.pipe( gulp.dest( './public/assets' ) );
 }
 
 /* Watcher */
@@ -27,4 +33,4 @@ export function watch(){
 }
 
 /* Default task */
-export default gulp.series( buildLayout, cssBuildTask )
+export default gulp.series( buildLayout, cssBuildTask, buildAssets )
