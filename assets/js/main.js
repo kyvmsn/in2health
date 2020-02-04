@@ -63,8 +63,7 @@ $(function(){
     $('.countAnimation').inViewport(function(px){
         if ( !px || $(this).attr("animated") ) return;
 
-        let el = $(this);
-        el.attr("animated",true);
+        $(this).attr("animated",true);
         $(this).prop( 'Counter', 0 ).animate({ Counter: $(this).text() }, {
             duration: DEFAULT_ANIMATION_DELAY,
             easing: 'swing',
@@ -79,8 +78,7 @@ $(function(){
         if ( !px || $(this).attr("animated") ) return;
 
         let value = $(this).data('filled');
-        let el = $(this);
-        el.attr("animated",true);
+        $(this).attr("animated",true);
         $(this).prop( 'width', 0 ).animate({ width: value }, {
             duration: DEFAULT_ANIMATION_DELAY,
             easing: 'swing',
@@ -90,13 +88,32 @@ $(function(){
         });
     });
 
+    // Height animations   
+    $('.heightAnimation').inViewport(function(px){
+        if ( !px || $(this).attr("animated") ) return;
+
+        let base = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--medical-bar-max-height"))
+        let height = parseInt($(this).data('height'));
+        let compare = parseInt($(this).data('compare'));
+        let value = height >= compare ? base : height;
+        console.log( `${height} - ${compare} -${value}` )
+        
+        $(this).attr("animated",true);
+        $(this).prop( 'height', 0 ).animate({ height: value }, {
+            duration: DEFAULT_ANIMATION_DELAY,
+            easing: 'swing',
+            step: function(now){
+                $(this).height( Math.ceil( now ) + 'px' );
+            }
+        });
+    });
+
     // Background animations   
     $('.rotateAnimation').inViewport(function(px){
         if ( !px || $(this).attr("animated") ) return;
 
         let angle = -90 + parseInt($(this).data('scores')) * 1.8;
-        let el = $(this);
-        el.attr("animated",true);
+        $(this).attr("animated",true);
         $(this).prop( { rotation: -90 } ).animate({ rotation: angle }, {
             duration: DEFAULT_ANIMATION_DELAY,
             easing: 'linear',
