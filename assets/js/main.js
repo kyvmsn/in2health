@@ -95,7 +95,7 @@ $(function(){
         let base = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--medical-bar-max-height"))
         let height = parseInt($(this).data('height'));
         let compare = parseInt($(this).data('compare'));
-        let value = height >= compare ? base : height;
+        let value = height >= compare ? base : height * base / 100;
         
         $(this).attr("animated",true);
         $(this).prop( 'height', 0 ).animate({ height: value }, {
