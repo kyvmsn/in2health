@@ -1,0 +1,78 @@
+$page : "login"
+
+.#{$page}
+    display: flex
+    flex-direction: row
+    background: color('white')
+
+    a:not(.btn)
+        text-decoration: underline
+
+    .row
+        margin-left: 0
+        margin-right: 0
+
+    .col-6
+        padding-left: 8px
+        padding-right: 8px
+
+    @include media-breakpoint-down(md)
+        display: block
+
+    +element("content")
+        min-width: 320px
+        width: 100%
+        height: 100vh
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+
+        @include media-breakpoint-up(lg)
+            min-width: 525px
+            max-width: 525px
+
+    +element("logo")
+        width: 300px
+        height: 100px
+        background: url(../images/logo-big.svg) center center no-repeat
+        background-size: contain
+        margin: 0 auto
+
+        @include media-breakpoint-up(sm)
+            width: 400px
+
+    +element("title")
+        font-weight: bold
+        font-size: 32px
+        line-height: 1.41em
+
+    +element("subtitle")
+        font-weight: 600
+        font-size: 15px
+        line-height: 2em
+
+    +elements("header" "footer")
+        text-align: center
+
+    +element("aside")
+        display: none
+        width: 100%
+        height: 100vh
+        position: relative
+        background: #abc3d3 url(../images/login-bg.png) right bottom no-repeat
+
+        @include media-breakpoint-up(md)
+            display: block
+
+    +element("aside-text")
+        font-size: 50px;
+        line-height: 1.33em;
+        color: color('white')
+        position: absolute
+        left: 30px
+        top: 148px
+
+        @include media-breakpoint-up(xxl)
+            font-size: 90px
+            left: 60px

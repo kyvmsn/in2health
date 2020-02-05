@@ -56,9 +56,11 @@ $lightGray: #e5e8eb;
 $lightGray1: #e4e4e4;
 $lightGray2: #d8d8d8;
 $darkerGray: #979797;
+$darkerGray0: #74747b;
 $darkerGray1: #595966;
 $darkerGray2: #44444F;
 $darkGray: #4f4f4f;
+$dark: #2E2F36;
 
 $colors: (
     "blue":       $blue,
@@ -84,9 +86,11 @@ $colors: (
     "lightGray1": $lightGray1,
     "lightGray2": $lightGray2,
     "darkerGray": $darkerGray,
+    "darkerGray0": $darkerGray0,
     "darkerGray1": $darkerGray1,
     "darkerGray2": $darkerGray2,
-    "darkGray":   $darkGray
+    "darkGray":   $darkGray,
+    "dark":   $dark
 );
 
 $primary:       $blue;
@@ -165,4 +169,13 @@ $sizes: (
     90: 90%,
     100: 100%,
     auto: auto
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
 );
