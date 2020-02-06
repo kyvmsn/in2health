@@ -122,5 +122,39 @@ $(function(){
         });
     });
 
+    // Demo actions animations
+    $('.action__input').change(function(){
+        let target = $("#potential-scores .medical-age__bar_vary");
+        let targetBattery = $("#potential-scores .battery__progress");
+        let compareHeight = $("#potential-scores .medical-age__bar:not(.medical-age__bar_vary)").height();
+        let step = 10;
+        let scoreStep = 2;
+        if ( $(this).prop("checked") )
+        {
+            target.height( target.height() - step );
+            targetBattery.width( targetBattery.width() + scoreStep );
+            $("#targetBar").html( parseInt( $("#targetBar").html() ) - 1 );
+            $("#targetBattery").html( parseInt( $("#targetBattery").html() ) + 1 );
+        }
+        else
+        {
+            target.height( target.height() + step );
+            targetBattery.width( targetBattery.width() - scoreStep );
+            $("#targetBar").html( parseInt( $("#targetBar").html() ) + 1 );
+            $("#targetBattery").html( parseInt( $("#targetBattery").html() ) - 1 );
+        }
+
+        setTimeout(function(){
+            let component = target.parents(".medical-age");
+            component.removeClass("medical-age_bad medical-age_good medical-age_matches")
+            if ( target.height() < compareHeight )
+                component.addClass("medical-age_good");
+            else if ( target.height() > compareHeight )
+                component.addClass("medical-age_bad");
+            else
+                component.addClass("medical-age_matches");
+        },250)
+    });
+
     // ------------------- Animations:end -------------- //
 });

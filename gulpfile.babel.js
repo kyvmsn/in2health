@@ -28,6 +28,7 @@ function buildAssets(){
 /* Watcher */
 export function watch(){
 	gulp.watch( 'layout/**/*.html', buildLayout );
+	gulp.watch( 'assets/js/**/*.js', buildAssets );
 	gulp.watch( 'assets/sass/**/*.sass', gulp.series( cssBuildTask, buildAssets ) );
     gulp.watch( 'assets/sass/**/*.scss', gulp.series( cssBuildTask, buildAssets ) );    
 }
