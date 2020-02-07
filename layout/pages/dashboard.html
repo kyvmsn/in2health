@@ -142,7 +142,7 @@
                                 <p class="mb-7">This interactive tool allows you to see what effect different lifestyle 
                                     choices can have on your Medical Age and Vitality Score.</p>
                                 <p class="mb-7">These will also improve your Health Forecast.  Time to get inspired!</p>
-                                <button class="btn btn-primary w-90">Find out how</button>
+                                <a href="reduce-my-risks.html" class="btn btn-primary w-90">Find out how</a>
                             </div>
                             <div class="col-md-8">
                                 <img src="assets/images/reduce-my-risks.png" width="100%">
@@ -157,7 +157,7 @@
                                 <p class="mb-7">Improve your scores by making small lifestyle changes with the help of an In2Health doctor.</p>
                                 <p class="mb-7">We'll assess your results, providing referrals if needed (for a small fee), along with actionable 
                                     lifestyle and medical recommendations.</p>
-                                <button class="btn btn-primary w-75">Take some action</button>
+                                <button class="btn btn-primary w-75" data-toggle="modal" data-target="#requestPlan">Take some action</button>
                             </div>
                         </div>
                     </div>
@@ -166,6 +166,7 @@
         </main>
     </div>
     
+    <!--inject:../components/personal-plan-modal.html-->
     <!--inject:../components/html/common-js.html-->
     <script>
     $(function(){
