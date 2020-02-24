@@ -98,12 +98,6 @@ $(function(){
         let compare = parseInt($(this).data('compare'));
         let value = height >= compare ? base : parseInt( height / compare * base );
 
-        console.log( base );
-        console.log( height );
-        console.log( compare );
-        console.log( value );
-        console.log( "========================" );
-        
         $(this).attr("animated",true);
         $(this).prop( 'height', 0 ).animate({ height: value }, {
             duration: DEFAULT_ANIMATION_DELAY,
