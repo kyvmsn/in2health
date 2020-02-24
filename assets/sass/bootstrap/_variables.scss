@@ -121,6 +121,7 @@ $theme-colors: map-merge(
     font-size: 17px;
     --font-family-theme : "Nunito", sans-serif;
     --medical-bar-max-height : 207px; // 156px + 51px
+    --medical-bar-text-area-height : 51px; // 41px + 10px
 }
 
 $spacer: 5px;

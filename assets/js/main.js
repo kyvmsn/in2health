@@ -92,10 +92,17 @@ $(function(){
     $('.heightAnimation').inViewport(function(px){
         if ( !px || $(this).attr("animated") ) return;
 
-        let base = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--medical-bar-max-height"))
+        let base = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--medical-bar-max-height")) - 
+            parseInt(getComputedStyle(document.documentElement).getPropertyValue("--medical-bar-text-area-height"));
         let height = parseInt($(this).data('height'));
         let compare = parseInt($(this).data('compare'));
-        let value = height >= compare ? base : height * base / 100;
+        let value = height >= compare ? base : parseInt( height / compare * base );
+
+        console.log( base );
+        console.log( height );
+        console.log( compare );
+        console.log( value );
+        console.log( "========================" );
         
         $(this).attr("animated",true);
         $(this).prop( 'height', 0 ).animate({ height: value }, {

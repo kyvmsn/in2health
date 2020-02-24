@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--inject:../components/html/common-meta.html-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>in2health</title>
+    <!--inject:../components/html/favicon.html-->
+    <!--inject:../components/html/common-css.html-->
+    <!--inject:../components/html/extra-header.html-->
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!--inject:../components/navbar.html-->
+
+        <!-- Sidebar -->
+        <!--inject:../components/sidebar.html-->
+
+        <!-- Content -->
+        <main id="content" class="dashboard">
+            <section class="dashboard__picture">
+                <div class="inner-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--inject:../components/info-box-medical-age-edge1.html-->
+                            </div>
+                            <div class="col-md-6 mt-3 mt-sm-3 mt-md-0">
+                                <!--inject:../components/info-box-medical-age-edge2.html-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!--inject:../components/personal-plan-modal.html-->
+    <!--inject:../components/html/common-js.html-->
+    <script>
+    $(function(){
+        $("#nav-menu > li:nth-of-type(1) > a").addClass("sidebar__menu-link_active");
+    });
+    </script>
+</body>
+</html>
