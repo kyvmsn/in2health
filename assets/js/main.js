@@ -2,9 +2,9 @@
 $.fn.inViewport = function(cb) {
     return this.each(function(i,el){
         function visPx(){
-        var H = $(this).height(),
-            r = el.getBoundingClientRect(), t=r.top, b=r.bottom;
-        return cb.call(el, Math.max(0, t>0? H-t : (b<H?b:H)));  
+            var H = $(this).height(),
+                r = el.getBoundingClientRect(), t=r.top, b=r.bottom;
+            return cb.call(el, Math.max(0, t>0? H-t : (b<H?b:H)));
         } visPx();
         $(win).on("resize scroll", visPx);
     });
@@ -16,16 +16,16 @@ $(function(){
     $(".sidebar-collapse").on("click", function(){
         $(".sidebar").toggleClass("active");
         $(".wrapper").toggleClass("active");
-        $(this).toggleClass("active");        
+        $(this).toggleClass("active");
     });
 
     // Popovers
     $('[data-toggle="popover"]')
         .popover()
-        .on('show.bs.popover', function(){            
+        .on('show.bs.popover', function(){
             $(".overlay").show();
         })
-        .on('hide.bs.popover', function(){            
+        .on('hide.bs.popover', function(){
             $(".overlay").hide();
         });
 
@@ -73,7 +73,7 @@ $(function(){
         });
     });
 
-    // Background animations   
+    // Background animations
     $('.fillAnimation').inViewport(function(px){
         if ( !px || $(this).attr("animated") ) return;
 
@@ -88,7 +88,7 @@ $(function(){
         });
     });
 
-    // Height animations   
+    // Height animations
     $('.heightAnimation').inViewport(function(px){
         if ( !px || $(this).attr("animated") ) return;
 
@@ -108,13 +108,22 @@ $(function(){
         });
     });
 
-    // Background animations   
+    // Pie builder
+    $(".health-score__diagramm-pie").each(function(){
+        let baseAngel = 126;
+        let start = parseInt($(this).data('range-start')) * baseAngel * 2 / 100;
+        let end = parseInt($(this).data('range-end')) * baseAngel * 2 / 100;
+        $(this).css( { 'background' : 'conic-gradient( #f55d5d 0 '+start+'deg, #fbc62a '+start+'deg '+end+'deg, #50cf96 '+end+'deg 252deg, white 252deg)' } );
+    });
+
+    // Background animations
     $('.rotateAnimation').inViewport(function(px){
         if ( !px || $(this).attr("animated") ) return;
 
-        let angle = -90 + parseInt($(this).data('scores')) * 1.8;
+        let baseAngel = 122;
+        let angle = -baseAngel + parseInt($(this).data('scores')) * baseAngel * 2 / 100;
         $(this).attr("animated",true);
-        $(this).prop( { rotation: -90 } ).animate({ rotation: angle }, {
+        $(this).prop( { rotation: -baseAngel } ).animate({ rotation: angle }, {
             duration: DEFAULT_ANIMATION_DELAY,
             easing: 'linear',
             step: function(){
