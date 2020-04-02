@@ -33,6 +33,10 @@ $page : "login"
             min-width: 525px
             max-width: 525px
 
+        @include media-breakpoint-up(xxl)
+            min-width: calc( 100% - 860px )
+            max-width: calc( 100% - 860px )
+
     +element("logo")
         width: 300px
         height: 100px
@@ -61,10 +65,14 @@ $page : "login"
         width: 100%
         min-height: 100vh
         position: relative
-        background: #abc3d3 url(../images/login-bg.png) right bottom no-repeat
+        background: url(../images/login-bg.png) center bottom no-repeat, linear-gradient(130.99deg, rgba(141, 175, 201, 0.585) 10.88%, rgba(179, 217, 242, 0) 60.14%), linear-gradient(184.84deg, #5A819A 8.16%, #5A819A 50.39%, #ABC3D3 101.84%)
+        background-size: contain
 
         @include media-breakpoint-up(md)
             display: block
+
+        @include media-breakpoint-up(xxl)
+            width: 860px
 
     +element("aside-text")
         font-size: 50px;
@@ -72,7 +80,10 @@ $page : "login"
         color: color('white')
         position: absolute
         left: 30px
-        top: 148px
+        top: 88px
+
+        @include media-breakpoint-up(xl)
+            font-size: 70px;
 
         @include media-breakpoint-up(xxl)
             font-size: 90px
